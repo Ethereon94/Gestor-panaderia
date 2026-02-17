@@ -408,13 +408,12 @@ document.addEventListener("DOMContentLoaded", () => {
 // SPLASH SCREEN
 // ======================
 
-window.addEventListener("load", () => {
+document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     const splash = document.getElementById("splash");
     if (splash) splash.style.display = "none";
-  }, 800);
+  }, 500);
 });
-
 
 // ======================
 // SERVICE WORKER
