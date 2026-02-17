@@ -4,12 +4,18 @@ self.addEventListener("install", e => {
       return cache.addAll([
         "/",
         "/index.html",
-        "/style.css",
+        "/styles.css",
         "/script.js",
         "/manifest.json",
         "/icon-192.png",
         "/icon-512.png"
       ]);
     })
+  );
+});
+
+self.addEventListener("fetch", e => {
+  e.respondWith(
+    caches.match(e.request).then(resp => resp || fetch(e.request))
   );
 });
