@@ -1,0 +1,367 @@
+/* =====================
+   RESET BÁSICO
+===================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  background: #f4f6f8;
+  color: #222;
+  padding: 16px;
+}
+
+/* =====================
+   TÍTULO
+===================== */
+.titulo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* =====================
+   TABS
+===================== */
+.secciones {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  margin-bottom: 16px;
+}
+
+.tab {
+  background: #e0e4ea;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.tab.activa {
+  background: #4f6df5;
+  color: #fff;
+}
+
+/* =====================
+   FORMULARIOS
+===================== */
+.formulario {
+  background: #ffffff;
+  padding: 14px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.formulario input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.acciones {
+  display: flex;
+  gap: 10px;
+}
+
+.acciones button {
+  flex: 1;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#btnAgregar { background: #e3e7ff; }
+#btnGuardar,
+#btnAgregarInsumo { background: #4f6df5; color: white; }
+
+/* =====================
+   SECCIONES
+===================== */
+.seccion { display: none; }
+.seccion.activa { display: block; }
+.seccion h2 { margin-bottom: 10px; }
+
+/* =====================
+   LISTAS
+===================== */
+ul { list-style: none; }
+
+/* =====================
+   TARJETAS (RECETAS / INSUMOS)
+===================== */
+.receta {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.receta strong { font-size: 16px; }
+.resultado { margin-top: 8px; font-size: 14px; line-height: 1.4; }
+
+.receta input {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.acciones-receta {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.btn-editar {
+  background: #ffd966;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.btn-eliminar {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+/* =====================
+   MODAL
+===================== */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-box {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 320px;
+}
+
+.modal-acciones {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.modal-acciones button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-acciones .danger {
+  background: #ff6b6b;
+  color: white;
+}
+
+/* =====================
+   COSTOS - ULTRA FINAL, PEGADO IZQUIERDA, TABLA MÁS DELGADA
+===================== */
+#vista-costos {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 0;
+  width: 100%;
+  align-items: flex-start; /* todo pegado a la izquierda */
+}
+
+.card-costo {
+  width: 70%; /* más delgada */
+  max-width: 650px;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+.card-costo h3 {
+  color: #224466;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  text-align: left;
+}
+
+.card-costo table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+  font-size: 1em;
+}
+
+.card-costo table th,
+.card-costo table td {
+  padding: 10px 12px; /* un poquito más compacto */
+  text-align: left;
+  border: 1px solid #99c2eb;
+  white-space: nowrap;
+}
+
+.card-costo table th {
+  background-color: #a3c5e6;
+  color: #224466;
+  font-weight: 600;
+}
+
+.card-costo table td {
+  background-color: #d9e6f5;
+  color: #112244;
+}
+
+.card-costo table th:nth-child(1),
+.card-costo table td:nth-child(1) { width: 40%; }
+.card-costo table th:nth-child(2),
+.card-costo table td:nth-child(2) { width: 20%; }
+.card-costo table th:nth-child(3),
+.card-costo table td:nth-child(3) { width: 20%; }
+.card-costo table th:nth-child(4),
+.card-costo table td:nth-child(4) { width: 20%; }
+
+.card-costo .totales {
+  margin-top: 8px;
+  font-weight: bold;
+  font-size: 1em;
+  color: #224466;
+  text-align: left;
+}
+
+@media (max-width: 960px) {
+  #vista-costos { align-items: flex-start; }
+  .card-costo { width: 90%; }
+}
+
+/* =====================
+   SCROLL INGREDIENTES (FORMULARIO)
+===================== */
+#ingredientesContainer {
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+/* =====================
+   RECETA FINALIZADA (VISUAL)
+===================== */
+.receta-finalizada {
+  background: rgba(79, 109, 245, 0.08);
+  border-left: 4px solid rgba(79, 109, 245, 0.35);
+}
+
+/* =====================
+   INPUTS DE RECETA
+===================== */
+.receta input[type="number"] {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.15);
+  font-size: 14px;
+}
+
+/* contenedor de inputs */
+.receta .inputs-receta {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* cada input dentro */
+.receta .inputs-receta input {
+  flex: 1;
+}
+
+/* resultados debajo de cada input */
+.receta .resultado-input {
+  margin-top: 6px;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.ingrediente {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.ingrediente-nombre {
+  flex: 2;
+}
+
+.ingrediente-cantidad {
+  flex: 1;
+}
+
+/* =====================
+   BLOQUE RESULTADO %
+===================== */
+
+.receta .resultado-input {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+/* =========================
+   INPUTS DENTRO DE RECETA
+========================= */
+
+.receta .inputs-receta input {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* elimina margen vertical que rompe el diseño */
+.receta .inputs-receta input {
+  margin-top: 0;
+}
+
+#splash {
+  position: fixed;
+  inset: 0;
+  background: #e0b04a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  color: white;
+  font-size: 20px;
+}
+
+#splash img {
+  width: 120px;
+  margin-bottom: 10px;
+}

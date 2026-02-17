@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestor de Recetas</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#e0b04a">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+</head>
+<body>
+  <div id="splash">
+  <img src="icon-512.png" alt="logo">
+  <h2>Gestor de Recetas</h2>
+</div>
+
+  <h1 class="titulo">🍞 Gestor de Recetas</h1>
+
+  <!-- TABS -->
+  <div class="secciones">
+    <button class="tab activa" data-seccion="panaderia">🥖 Panadería</button>
+    <button class="tab" data-seccion="reposteria">🍰 Repostería</button>
+    <button class="tab" data-seccion="rellenos">🥄 Rellenos</button>
+    <button class="tab" data-seccion="insumos">🧺 Insumos</button>
+    <button class="tab" data-seccion="costos">💲 Costos</button>
+    <button class="tab" data-seccion="backup">💾 Backup</button>
+  </div>
+
+  <!-- FORMULARIO DE RECETAS -->
+  <div class="formulario" id="form-recetas">
+    <input id="nombre" type="text" placeholder="Nombre de la receta">
+
+    <!-- INGREDIENTES CON SCROLL -->
+    <div id="ingredientesContainer"></div>
+
+    <div class="acciones">
+      <button id="btnAgregar">➕ Ingrediente</button>
+      <button id="btnGuardar">💾 Guardar receta</button>
+    </div>
+  </div>
+
+  <!-- PANADERÍA -->
+  <section id="panaderia" class="seccion activa">
+    <h2>🥖 Panadería</h2>
+    <ul id="lista-panaderia"></ul>
+  </section>
+
+  <!-- REPOSTERÍA -->
+  <section id="reposteria" class="seccion">
+    <h2>🍰 Repostería</h2>
+    <ul id="lista-reposteria"></ul>
+  </section>
+
+  <!-- RELLENOS -->
+  <section id="rellenos" class="seccion">
+    <h2>🥄 Rellenos</h2>
+    <ul id="lista-rellenos"></ul>
+  </section>
+
+  <!-- INSUMOS -->
+  <section id="insumos" class="seccion">
+    <h2>🧺 Insumos</h2>
+
+    <div class="formulario">
+      <input id="insumo-nombre" type="text" placeholder="Nombre del insumo">
+      <input id="insumo-cantidad" type="number" placeholder="Cantidad del paquete (g)">
+      <input id="insumo-precio" type="number" placeholder="Precio del paquete">
+
+      <div class="acciones">
+        <button id="btnAgregarInsumo">➕ Agregar insumo</button>
+      </div>
+    </div>
+
+    <ul id="lista-insumos"></ul>
+  </section>
+
+  <!-- COSTOS -->
+  <section id="costos" class="seccion">
+    <h2>💲 Costos</h2>
+    <div id="vista-costos"></div>
+  </section>
+  
+  <!-- BACKUP -->
+<section id="backup" class="seccion">
+  <h2>💾 Backup</h2>
+
+  <div class="formulario">
+    <div class="acciones">
+      <button id="btnExportar">📤 Exportar datos</button>
+      <input type="file" id="fileImportar" accept=".json">
+      <button id="btnImportar">📥 Importar datos</button>
+    </div>
+  </div>
+
+  <p style="margin-top:10px; font-size:14px; opacity:0.7;">
+    Exportá tus recetas e insumos para guardarlos o pasarlos a otro dispositivo.
+  </p>
+</section>
+
+  <script src="script.js"></script>
+</body>
+</html>
