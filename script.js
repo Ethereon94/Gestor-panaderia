@@ -405,17 +405,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ======================
-// SPLASH SCREEN
-// ======================
-
-document.addEventListener("DOMContentLoaded", () => {
-  setTimeout(() => {
-    const splash = document.getElementById("splash");
-    if (splash) splash.style.display = "none";
-  }, 500);
-});
-
-// ======================
 // SERVICE WORKER
 // ======================
 
