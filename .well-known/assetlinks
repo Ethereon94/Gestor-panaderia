@@ -2,8 +2,11 @@
   {
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
-      "namespace": "web",
-      "site": "https://courageous-travesseiro-424ca0.netlify.app"
+      "namespace": "android_app",
+      "package_name": "com.recetas.app",
+      "sha256_cert_fingerprints": [
+        "B6:32:C9:BD:EC:F1:FE:7F:4C:99:BD:11:CF:8F:69:9F:73:88:9A:85:6C:32:34:C7:E4:11:32:BF:C5:C1:23:EC"
+      ]
     }
   }
 ]
