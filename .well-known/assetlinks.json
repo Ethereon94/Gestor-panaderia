@@ -3,7 +3,7 @@
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target": {
       "namespace": "android_app",
-      "package_name": "com.recetas.app",
+      "package_name": "app.netlify.cheerful_heliotrope_6c374d.twa",
       "sha256_cert_fingerprints": [
         "EB:9C:F9:DD:44:CC:6A:04:B3:55:24:D1:8E:A1:6B:28:64:25:48:A5:D4:08:AF:56:4A:54:F3:A6:0E:34:3E:7B"
       ]
