@@ -11,7 +11,17 @@
 body {
   background: #f4f6f8;
   color: #222;
-  padding: 16px;
+  margin: 0;
+  padding: 10px; /* más chico para mobile */
+  width: 100%;
+}
+
+/* =====================
+   CONTENEDOR GENERAL (CLAVE)
+===================== */
+.app {
+  width: 100%;
+  max-width: 100%;
 }
 
 /* =====================
@@ -19,7 +29,7 @@ body {
 ===================== */
 .titulo {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 /* =====================
@@ -40,6 +50,7 @@ body {
   cursor: pointer;
   white-space: nowrap;
   font-weight: 500;
+  flex-shrink: 0;
 }
 
 .tab.activa {
@@ -56,6 +67,7 @@ body {
   border-radius: 12px;
   margin-bottom: 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  width: 100%;
 }
 
 .formulario input {
@@ -98,7 +110,7 @@ body {
 ul { list-style: none; }
 
 /* =====================
-   TARJETAS (RECETAS / INSUMOS)
+   TARJETAS
 ===================== */
 .receta {
   background: #ffffff;
@@ -106,6 +118,7 @@ ul { list-style: none; }
   padding: 14px;
   margin-bottom: 14px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  width: 100%;
 }
 
 .receta strong { font-size: 16px; }
@@ -158,31 +171,12 @@ ul { list-style: none; }
   background: white;
   padding: 20px;
   border-radius: 12px;
-  width: 90%;
+  width: 95%;
   max-width: 320px;
 }
 
-.modal-acciones {
-  display: flex;
-  gap: 10px;
-  margin-top: 14px;
-}
-
-.modal-acciones button {
-  flex: 1;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-}
-
-.modal-acciones .danger {
-  background: #ff6b6b;
-  color: white;
-}
-
 /* =====================
-   COSTOS - ULTRA FINAL, PEGADO IZQUIERDA, TABLA MÁS DELGADA
+   COSTOS (AJUSTADO MOBILE)
 ===================== */
 #vista-costos {
   display: flex;
@@ -190,44 +184,28 @@ ul { list-style: none; }
   gap: 25px;
   padding: 0;
   width: 100%;
-  align-items: flex-start; /* todo pegado a la izquierda */
 }
 
 .card-costo {
-  width: 70%; /* más delgada */
-  max-width: 650px;
-  padding: 0;
-  border: none;
-  background: none;
-  box-shadow: none;
-}
-
-.card-costo h3 {
-  color: #224466;
-  margin-bottom: 10px;
-  font-size: 1.5em;
-  text-align: left;
+  width: 100%;   /* 🔥 FULL WIDTH */
+  max-width: 100%;
 }
 
 .card-costo table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: auto;
-  font-size: 1em;
+  font-size: 14px;
 }
 
 .card-costo table th,
 .card-costo table td {
-  padding: 10px 12px; /* un poquito más compacto */
-  text-align: left;
+  padding: 8px;
   border: 1px solid #99c2eb;
-  white-space: nowrap;
 }
 
 .card-costo table th {
   background-color: #a3c5e6;
   color: #224466;
-  font-weight: 600;
 }
 
 .card-costo table td {
@@ -235,30 +213,8 @@ ul { list-style: none; }
   color: #112244;
 }
 
-.card-costo table th:nth-child(1),
-.card-costo table td:nth-child(1) { width: 40%; }
-.card-costo table th:nth-child(2),
-.card-costo table td:nth-child(2) { width: 20%; }
-.card-costo table th:nth-child(3),
-.card-costo table td:nth-child(3) { width: 20%; }
-.card-costo table th:nth-child(4),
-.card-costo table td:nth-child(4) { width: 20%; }
-
-.card-costo .totales {
-  margin-top: 8px;
-  font-weight: bold;
-  font-size: 1em;
-  color: #224466;
-  text-align: left;
-}
-
-@media (max-width: 960px) {
-  #vista-costos { align-items: flex-start; }
-  .card-costo { width: 90%; }
-}
-
 /* =====================
-   SCROLL INGREDIENTES (FORMULARIO)
+   INGREDIENTES SCROLL
 ===================== */
 #ingredientesContainer {
   max-height: 180px;
@@ -266,84 +222,32 @@ ul { list-style: none; }
 }
 
 /* =====================
-   RECETA FINALIZADA (VISUAL)
+   INPUTS RECETA
 ===================== */
-.receta-finalizada {
-  background: rgba(79, 109, 245, 0.08);
-  border-left: 4px solid rgba(79, 109, 245, 0.35);
-}
-
-/* =====================
-   INPUTS DE RECETA
-===================== */
-.receta input[type="number"] {
-  width: 100%;
-  padding: 8px 10px;
-  margin-top: 8px;
-  border-radius: 8px;
-  border: 1px solid rgba(0,0,0,0.15);
-  font-size: 14px;
-}
-
-/* contenedor de inputs */
 .receta .inputs-receta {
   display: flex;
   gap: 10px;
   margin-top: 10px;
 }
 
-/* cada input dentro */
 .receta .inputs-receta input {
-  flex: 1;
-}
-
-/* resultados debajo de cada input */
-.receta .resultado-input {
-  margin-top: 6px;
-  font-size: 13px;
-  opacity: 0.85;
-}
-
-.ingrediente {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
-.ingrediente-nombre {
-  flex: 2;
-}
-
-.ingrediente-cantidad {
   flex: 1;
 }
 
 /* =====================
-   BLOQUE RESULTADO %
+   RESPONSIVE EXTRA
 ===================== */
+@media (max-width: 600px) {
+  body {
+    padding: 8px;
+  }
 
-.receta .resultado-input {
-  margin-top: 14px;
-  padding-top: 10px;
-  border-top: 1px solid rgba(0,0,0,0.08);
-  line-height: 1.5;
-  font-size: 14px;
-}
+  .titulo {
+    font-size: 18px;
+  }
 
-/* =========================
-   INPUTS DENTRO DE RECETA
-========================= */
-
-.receta .inputs-receta input {
-  background: #ffffff;
-  border: 1px solid rgba(0,0,0,0.12);
-  border-radius: 10px;
-  padding: 10px;
-  font-size: 14px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-/* elimina margen vertical que rompe el diseño */
-.receta .inputs-receta input {
-  margin-top: 0;
+  .tab {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
 }
