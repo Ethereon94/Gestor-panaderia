@@ -11,17 +11,7 @@
 body {
   background: #f4f6f8;
   color: #222;
-  margin: 0;
-  padding: 10px; /* más chico para mobile */
-  width: 100%;
-}
-
-/* =====================
-   CONTENEDOR GENERAL (CLAVE)
-===================== */
-.app {
-  width: 100%;
-  max-width: 100%;
+  padding: 16px;
 }
 
 /* =====================
@@ -29,7 +19,7 @@ body {
 ===================== */
 .titulo {
   text-align: center;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 /* =====================
@@ -50,7 +40,6 @@ body {
   cursor: pointer;
   white-space: nowrap;
   font-weight: 500;
-  flex-shrink: 0;
 }
 
 .tab.activa {
@@ -67,7 +56,6 @@ body {
   border-radius: 12px;
   margin-bottom: 20px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  width: 100%;
 }
 
 .formulario input {
@@ -110,7 +98,7 @@ body {
 ul { list-style: none; }
 
 /* =====================
-   TARJETAS
+   TARJETAS (RECETAS / INSUMOS)
 ===================== */
 .receta {
   background: #ffffff;
@@ -118,7 +106,6 @@ ul { list-style: none; }
   padding: 14px;
   margin-bottom: 14px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-  width: 100%;
 }
 
 .receta strong { font-size: 16px; }
@@ -171,12 +158,31 @@ ul { list-style: none; }
   background: white;
   padding: 20px;
   border-radius: 12px;
-  width: 95%;
+  width: 90%;
   max-width: 320px;
 }
 
+.modal-acciones {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.modal-acciones button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-acciones .danger {
+  background: #ff6b6b;
+  color: white;
+}
+
 /* =====================
-   COSTOS (AJUSTADO MOBILE)
+   COSTOS - ULTRA FINAL, PEGADO IZQUIERDA, TABLA MÁS DELGADA
 ===================== */
 #vista-costos {
   display: flex;
@@ -184,28 +190,44 @@ ul { list-style: none; }
   gap: 25px;
   padding: 0;
   width: 100%;
+  align-items: flex-start; /* todo pegado a la izquierda */
 }
 
 .card-costo {
-  width: 100%;   /* 🔥 FULL WIDTH */
-  max-width: 100%;
+  width: 70%; /* más delgada */
+  max-width: 650px;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+.card-costo h3 {
+  color: #224466;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  text-align: left;
 }
 
 .card-costo table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
+  table-layout: auto;
+  font-size: 1em;
 }
 
 .card-costo table th,
 .card-costo table td {
-  padding: 8px;
+  padding: 10px 12px; /* un poquito más compacto */
+  text-align: left;
   border: 1px solid #99c2eb;
+  white-space: nowrap;
 }
 
 .card-costo table th {
   background-color: #a3c5e6;
   color: #224466;
+  font-weight: 600;
 }
 
 .card-costo table td {
@@ -213,8 +235,30 @@ ul { list-style: none; }
   color: #112244;
 }
 
+.card-costo table th:nth-child(1),
+.card-costo table td:nth-child(1) { width: 40%; }
+.card-costo table th:nth-child(2),
+.card-costo table td:nth-child(2) { width: 20%; }
+.card-costo table th:nth-child(3),
+.card-costo table td:nth-child(3) { width: 20%; }
+.card-costo table th:nth-child(4),
+.card-costo table td:nth-child(4) { width: 20%; }
+
+.card-costo .totales {
+  margin-top: 8px;
+  font-weight: bold;
+  font-size: 1em;
+  color: #224466;
+  text-align: left;
+}
+
+@media (max-width: 960px) {
+  #vista-costos { align-items: flex-start; }
+  .card-costo { width: 90%; }
+}
+
 /* =====================
-   INGREDIENTES SCROLL
+   SCROLL INGREDIENTES (FORMULARIO)
 ===================== */
 #ingredientesContainer {
   max-height: 180px;
@@ -222,32 +266,127 @@ ul { list-style: none; }
 }
 
 /* =====================
-   INPUTS RECETA
+   RECETA FINALIZADA (VISUAL)
 ===================== */
+.receta-finalizada {
+  background: rgba(79, 109, 245, 0.08);
+  border-left: 4px solid rgba(79, 109, 245, 0.35);
+}
+
+/* =====================
+   INPUTS DE RECETA
+===================== */
+.receta input[type="number"] {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.15);
+  font-size: 14px;
+}
+
+/* contenedor de inputs */
 .receta .inputs-receta {
   display: flex;
   gap: 10px;
   margin-top: 10px;
 }
 
+/* cada input dentro */
 .receta .inputs-receta input {
   flex: 1;
 }
 
+/* resultados debajo de cada input */
+.receta .resultado-input {
+  margin-top: 6px;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.ingrediente {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.ingrediente-nombre {
+  flex: 2;
+}
+
+.ingrediente-cantidad {
+  flex: 1;
+}
+
 /* =====================
-   RESPONSIVE EXTRA
+   BLOQUE RESULTADO %
 ===================== */
+
+.receta .resultado-input {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+/* =========================
+   INPUTS DENTRO DE RECETA
+========================= */
+
+.receta .inputs-receta input {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* elimina margen vertical que rompe el diseño */
+.receta .inputs-receta input {
+  margin-top: 0;
+}
+
+/* =============================
+   FIX RESPONSIVE (NO ROMPE DISEÑO)
+============================= */
+
+/* limita el ancho general en pantallas grandes */
+body {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* evita que las tarjetas se desborden */
+.receta,
+.formulario,
+.card-costo {
+  width: 100%;
+}
+
+/* inputs de receta se acomodan en pantallas chicas */
 @media (max-width: 600px) {
-  body {
-    padding: 8px;
+  .receta .inputs-receta {
+    flex-direction: column;
   }
+}
 
-  .titulo {
-    font-size: 18px;
-  }
+/* permite scrollear la tabla de costos en celular */
+.card-costo table {
+  display: block;
+  overflow-x: auto;
+}
 
+/* tabs más compactos en pantallas chicas */
+@media (max-width: 600px) {
   .tab {
     padding: 8px 10px;
     font-size: 13px;
   }
+}
+
+/* botones que no se deformen */
+.acciones button {
+  min-width: 0;
 }
